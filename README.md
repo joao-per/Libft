@@ -14,7 +14,7 @@
 
 ## 🗣️ About
 
-I created a library with some basic functions that will help me save a lot of time and space in my future works.
+I created a library with some basic functions that will help me save a lot of time and space in my future works. 
 Every function and it's details are [**here**](https://github.com/joao-per/Libft/blob/main/en.subject.pdf).
 
 ## 🛠️ Download
