@@ -12,16 +12,39 @@ ft_lstdelone ft_lstclear ft_lstiter ft_lstmap\
 
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Werror -Wextra -I.
+CFLAGS = -Wall -Werror -Wextra
+AR	= ar rcs
 
-all:$(NAME)
+DEFAULT = \033[0;39m
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
+
+OBJSF		=	.cache_exists
+
+all:		$(NAME)
 
 $(NAME): $(SRC:=.o)
-			ar rc $(NAME) $(SRC:=.o)
+			@$(AR) $(NAME) $(SRC:=.o)
+			@echo "$(GREEN)Libft compiled $(MAGENTA)daddy UwU!$(DEFAULT)"
+
 clean:
-	$(RM)	$(SRC:=.o) $(BONUS:=.o)
-fclean: clean
-		$(RM)	$(NAME)
-re:	fclean	$(NAME)
-bonus:	$(SRC:=.o)	$(BONUS:=.o)
-		ar rc $(NAME) $(SRC:=.o)	$(BONUS:=.o)
+			@$(RM)	$(SRC:=.o)
+			@echo "$(BLUE)objects awe cweean UwU!$(DEFAULT)"
+
+fclean:		clean
+			@$(RM) -f $(NAME)
+			@echo "$(CYAN)Evewithing is cweean!$(DEFAULT)"
+
+re:			fclean all
+			@echo "$(GREEN)I cweeaned and rebuilt evewithing for u daddy UwU!$(DEFAULT)"
+
+norm:
+	@norminette $(SRCS) $(INCLUDES) | grep -v Norme -B1 || true
+
+.PHONY:		all clean fclean re norm
