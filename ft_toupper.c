@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 18:23:45 by joao-per          #+#    #+#             */
-/*   Updated: 2022/09/05 18:23:45 by joao-per         ###   ########.fr       */
+/*   Created: 2023/01/25 13:24:50 by joao-per          #+#    #+#             */
+/*   Updated: 2023/01/25 13:24:50 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_toupper(int i)
 {
-	if (i >= 'a' && i <= 'z')
+	if (i >= 97 && i <= 122)
 		return (i - 32);
 	return (i);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 18:21:47 by joao-per          #+#    #+#             */
-/*   Updated: 2022/09/05 18:21:47 by joao-per         ###   ########.fr       */
+/*   Created: 2023/01/25 13:25:43 by joao-per          #+#    #+#             */
+/*   Updated: 2023/01/25 13:25:43 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isdigit(int i)
 {
-	if ('0' <= i && i <= '9')
+	if (48 <= i && i <= 57)
 		return (1);
 	return (0);
 }

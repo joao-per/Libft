@@ -3,64 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 18:21:52 by joao-per          #+#    #+#             */
-/*   Updated: 2022/09/19 19:27:19 by joao-per         ###   ########.fr       */
+/*   Created: 2023/01/25 13:25:40 by joao-per          #+#    #+#             */
+/*   Updated: 2023/01/25 13:25:40 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_size_0(int n)
+size_t	ft_nbrlen(long long n)
 {
-	int	size;
+	size_t	i;
 
-	size = 0;
-	if (n > 0)
-		size = 0;
-	else
-		size = 1;
-	return (size);
-}
-
-int	ft_sinal(int n)
-{
-	int	sinal;
-
-	sinal = 0;
+	i = 1;
 	if (n < 0)
-		sinal = -1;
-	else
-		sinal = 1;
-	return (sinal);
-}
-
-char	*ft_itoa(int n)
-{
-	char	*str;
-	long	nbr;
-	size_t	size;
-
-	size = ft_size_0(n);
-	nbr = (long)n * ft_sinal(n);
-	while (n)
+	{
+		n *= -1;
+		i++;
+	}
+	while (n > 9)
 	{
 		n /= 10;
-		size++;
+		i++;
 	}
-	str = (char *)malloc(size + 1);
-	if (!str)
-		return (0);
-	*(str + size--) = '\0';
-	while (nbr > 0)
-	{
-		*(str + size--) = nbr % 10 + '0';
-		nbr /= 10;
-	}
-	if (size == 0 && str[1] == '\0')
-		*(str + size) = '0';
-	else if (size == 0 && str[1] != '\0')
-		*(str + size) = '-';
-	return (str);
+	return (i);
 }
+
+static void	ft_putnbr_stock(long n, char *str, int *i)
+{
+	if (n > 9)
+	{
+		ft_putnbr_stock(n / 10, str, i);
+		ft_putnbr_stock(n % 10, str, i);
+	}
+	else
+		str[(*i)++] = n + '0';
+}
+
+char		*ft_itoa(int n)
+{
+	char	*str;
+	int		i;
+	long	nbr;
+
+	nbr = n;
+	i = 0;
+	str = malloc(sizeof(char) * (ft_nbrlen(nbr) + 1));
+	if (!str)
+		return (NULL);
+	if (nbr < 0)
+	{
+		str[i++] = '-';
+		nbr *= -1;
+	}
+	ft_putnbr_stock(nbr, str, &i);
+	str[i] = '\0';
+	return (str);
+}	

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 18:22:14 by joao-per          #+#    #+#             */
-/*   Updated: 2022/09/19 19:27:57 by joao-per         ###   ########.fr       */
+/*   Created: 2023/01/25 13:25:22 by joao-per          #+#    #+#             */
+/*   Updated: 2023/01/25 13:25:22 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	char	*p;
+	char	*s1;
 
-	p = (char *)b;
+	s1 = (char *)b;
 	while (len > 0)
 	{
-		p[len - 1] = c;
+		s1[len - 1] = c;
 		len--;
 	}
 	return (b);

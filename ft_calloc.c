@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 03:27:22 by joao-per          #+#    #+#             */
-/*   Updated: 2022/09/19 19:26:52 by joao-per         ###   ########.fr       */
+/*   Created: 2023/01/25 13:25:48 by joao-per          #+#    #+#             */
+/*   Updated: 2023/01/25 13:25:48 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*fakemalloc;
+	void	*new;
 
-	fakemalloc = malloc(count * size);
-	if (!fakemalloc)
+	new = malloc(count * size);
+	if (!new)
 		return (NULL);
-	ft_memset(fakemalloc, '\0', (count * size));
-	return (fakemalloc);
+	ft_memset(new, '\0', (count * size));
+	return (new);
 }

@@ -1,14 +1,27 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/25 13:24:44 by joao-per          #+#    #+#              #
+#    Updated: 2023/01/25 13:24:44 by joao-per         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
-SRC = ft_memset ft_bzero ft_memcpy ft_memmove ft_memchr\
-ft_memcmp ft_strlen ft_strlcpy ft_strlcat ft_strchr ft_strrchr\
-ft_substr ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd\
-ft_strnstr ft_strncmp ft_atoi ft_isalpha ft_isdigit ft_isalnum\
-ft_isascii ft_isprint ft_toupper ft_tolower ft_calloc ft_strdup\
-ft_strjoin ft_strtrim ft_strmapi ft_striteri ft_itoa ft_split\
+SRC = ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint \
+ft_substr ft_strlcat ft_strlcpy ft_strlen ft_strncmp ft_strnstr \
+ft_strrchr ft_strdup ft_strjoin ft_strtrim ft_strmapi ft_striteri ft_strchr\
+ft_tolower ft_toupper \
+ft_memchr ft_memcmp ft_memcpy ft_memmove ft_memset \
+ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
+ft_atoi ft_bzero ft_calloc ft_split ft_itoa \
 
-BONUS = ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast ft_lstadd_back\
-ft_lstdelone ft_lstclear ft_lstiter ft_lstmap\
+BONUS = ft_lstadd_back ft_lstadd_front ft_lstclear ft_lstdelone ft_lstnew \
+ft_lstlast ft_lstiter ft_lstsize ft_lstmap \
 
 CC = gcc
 RM = rm -f
@@ -31,10 +44,14 @@ all:		$(NAME)
 
 $(NAME): $(SRC:=.o)
 			@$(AR) $(NAME) $(SRC:=.o)
-			@echo "$(GREEN)Libft compiled $(MAGENTA)daddy UwU!$(DEFAULT)"
+			@echo "$(GREEN)Libft compiled $(MAGENTA)UwU!$(DEFAULT)"
+
+bonus:		$(BONUS:=.o)
+			@$(AR) $(NAME) $(BONUS:=.o)
+			@echo "$(GREEN)Bonus compiled$(DEFAULT)"
 
 clean:
-			@$(RM)	$(SRC:=.o)
+			@$(RM)	$(SRC:=.o) $(BONUS:=.o)
 			@echo "$(BLUE)objects awe cweean UwU!$(DEFAULT)"
 
 fclean:		clean

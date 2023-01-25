@@ -10,11 +10,6 @@
 <img alt="Libft" src="https://github.com/joao-per/joao-per/blob/main/Badges/Libft.png" />
 </div>
 
-<p align="center">
-	<img alt="GitHub code size in bytes" src="https://img.shields.io/badge/size-64%2C6%20KB-blue" />
-	<img alt="Code language count" src="https://img.shields.io/badge/languages-2-orange" />
-	<img alt="Last commit" src="https://img.shields.io/badge/last%20commit-september%202022-brightgreen" />
-</p>
 
 ## 🗣️ About
 

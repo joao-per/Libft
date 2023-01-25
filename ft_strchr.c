@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 18:22:53 by joao-per          #+#    #+#             */
-/*   Updated: 2022/09/05 18:22:53 by joao-per         ###   ########.fr       */
+/*   Created: 2023/01/25 13:25:14 by joao-per          #+#    #+#             */
+/*   Updated: 2023/01/25 13:25:14 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ char	*ft_strchr(const char *s, int i)
 {
 	while (*s)
 	{
-		if (*s == i)
+		if (*s == (char)i)
 			return ((char *)s);
 		s++;
 	}
-	if (i == '\0')
+	if ((char)i == '\0')
 		return ((char *)s);
 	return (0);
 }

@@ -3,36 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 12:21:47 by joao-per          #+#    #+#             */
-/*   Updated: 2022/09/19 19:24:58 by joao-per         ###   ########.fr       */
+/*   Created: 2023/01/25 13:25:15 by joao-per          #+#    #+#             */
+/*   Updated: 2023/01/25 13:25:15 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//counts every word delimited by the "char c"
-static int	word_count(const char *str, char c)
+static int	count_words(const char *str, char c)
 {
-	int	words;
-	int	separator;
+	int	count;
+	int	in_word;
 
-	words = 0;
-	separator = 0;
+	count = 0;
+	in_word = 0;
 	while (*str)
 	{
-		if (*str != c && separator == 0)
+		if (*str == c)
+			in_word = 0;
+		else if (!in_word)
 		{
-			separator = 1;
-			words++;
+			in_word = 1;
+			count++;
 		}
-		else if (*str == c)
-			separator = 0;
 		str++;
 	}
-	return (words);
+	return (count);
 }
+
 
 static char	*word_dup(const char *str, int start, int end)
 {
@@ -49,28 +49,28 @@ static char	*word_dup(const char *str, int start, int end)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
+	size_t	end;
 	size_t	j;
-	int		index;
-	char	**split;
+	int		start;
+	char	**phrase;
 
-	split = malloc((word_count(s, c) + 1) * sizeof(char *));
-	if (!s || !split)
+	phrase = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!s || !phrase)
 		return (0);
-	i = 0;
+	end = 0;
 	j = 0;
-	index = -1;
-	while (i <= ft_strlen(s))
+	start = -1;
+	while (end <= ft_strlen(s))
 	{
-		if (s[i] != c && index < 0)
-			index = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		if (s[end] != c && start < 0)	
+			start = end;
+		else if ((s[end] == c || end == ft_strlen(s)) && start >= 0)
 		{
-			split[j++] = word_dup(s, index, i);
-			index = -1;
+			phrase[j++] = word_dup(s, start, end);
+			start = -1;
 		}
-		i++;
+		end++;
 	}
-	split[j] = 0;
-	return (split);
+	phrase[j] = 0;
+	return (phrase);
 }

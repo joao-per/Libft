@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joao-per <joao-per@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: joao-per <joao-per@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 16:58:08 by joao-per          #+#    #+#             */
-/*   Updated: 2022/09/19 19:27:48 by joao-per         ###   ########.fr       */
+/*   Created: 2023/01/25 13:25:29 by joao-per          #+#    #+#             */
+/*   Updated: 2023/01/25 13:25:29 by joao-per         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*connect;
+	t_list	*new;
 
-	connect = (t_list *)malloc(sizeof(t_list));
-	if (!connect)
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
 		return (NULL);
-	connect->content = (void *)content;
-	connect->next = NULL;
-	return (connect);
+	new->content = (void *)content;
+	new->next = NULL;
+	return (new);
 }
