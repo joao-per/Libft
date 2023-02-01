@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+
 size_t	ft_nbrlen(long long n)
 {
 	size_t	i;
@@ -40,7 +41,7 @@ static void	ft_putnbr_stock(long n, char *str, int *i)
 		str[(*i)++] = n + '0';
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		i;

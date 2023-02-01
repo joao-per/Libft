@@ -33,7 +33,6 @@ static int	count_words(const char *str, char c)
 	return (count);
 }
 
-
 static char	*word_dup(const char *str, int start, int end)
 {
 	char	*word;
@@ -62,7 +61,7 @@ char	**ft_split(char const *s, char c)
 	start = -1;
 	while (end <= ft_strlen(s))
 	{
-		if (s[end] != c && start < 0)	
+		if (s[end] != c && start < 0)
 			start = end;
 		else if ((s[end] == c || end == ft_strlen(s)) && start >= 0)
 		{
